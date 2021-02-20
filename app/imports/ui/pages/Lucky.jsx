@@ -22,7 +22,6 @@ class Lucky extends React.Component {
         }
     }
 
-
     handleState() {
         if (this.props.ready === true) {
             this.setState({

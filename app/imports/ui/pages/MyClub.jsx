@@ -58,7 +58,6 @@ class MyClub extends React.Component {
     }
 }
 
-
 MyClub.propTypes = {
     clubs: PropTypes.array.isRequired,
     ready: PropTypes.bool.isRequired,
