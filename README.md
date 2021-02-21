@@ -6,6 +6,9 @@ Password management application created for ICS 427
 
 ### Developers
 Bailey Borengasser (baileykb)
+
 Michael Johnson (mj66)
+
 Kevin Nguyen (nk279)
+
 Nathan Zenger (nzenger)
