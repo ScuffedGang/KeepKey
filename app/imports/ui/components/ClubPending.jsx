@@ -84,7 +84,6 @@ class ClubPending extends React.Component {
   }
 }
 
-
 ClubPending.propTypes = {
   club: PropTypes.object.isRequired,
 };

@@ -51,7 +51,6 @@ class ClubDenied extends React.Component {
   }
 }
 
-
 ClubDenied.propTypes = {
   club: PropTypes.object.isRequired,
 };

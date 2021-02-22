@@ -51,7 +51,6 @@ class ClubDeleted extends React.Component {
   }
 }
 
-
 ClubDeleted.propTypes = {
   club: PropTypes.object.isRequired,
 };
