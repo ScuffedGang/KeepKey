@@ -1,12 +1,9 @@
 import React from 'react';
-import { Card, Button, Container, Header, Grid, Image, Tab, Menu } from 'semantic-ui-react';
+import { Card, Button, Container, Header, Grid, Image } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
-import FavoriteClubs from './FavoriteClubs';
-import RecommendedClubs from './RecommendedClubs';
-import Lucky from './Lucky';
 
 class Profile extends React.Component {
 
@@ -42,34 +39,6 @@ class Profile extends React.Component {
       profilePicture += 'https://cdn3.f-cdn.com/contestentries/1376995/30494909/5b566bc71d308_thumb900.jpg';
     }
 
-    /** Tab panes with user's favorites and recommendations */
-    const panes = [
-      {
-        menuItem: (
-            <Menu.Item key='favorites'>
-              Favorites&nbsp;&nbsp; 💖
-            </Menu.Item>
-        ),
-        render: () => <Tab.Pane attached={false} className='tab-pane'><FavoriteClubs /></Tab.Pane>,
-      },
-      {
-        menuItem: (
-            <Menu.Item key='recommended'>
-              Recommended For You ✔️
-            </Menu.Item>
-        ),
-        render: () => <Tab.Pane attached={false} className='tab-pane'><RecommendedClubs /></Tab.Pane>,
-      },
-      {
-        menuItem: (
-            <Menu.Item key='lucky'>
-              I&apos;m feeling Lucky 🌈
-            </Menu.Item>
-        ),
-        render: () => <Tab.Pane attached={false} className='tab-pane'><Lucky /></Tab.Pane>,
-      },
-    ];
-
     return (
         <Container fluid className='profile-page'>
           <Header as='h1'>Account Profile</Header>
@@ -92,9 +61,6 @@ class Profile extends React.Component {
                     </Link>
                   </Card.Content>
                 </Card>
-              </Grid.Column>
-              <Grid.Column width={13}>
-                <Tab menu={{ secondary: true, pointing: true }} panes={panes}/>
               </Grid.Column>
             </Grid.Row>
           </Grid>
