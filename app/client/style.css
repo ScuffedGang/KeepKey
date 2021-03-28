@@ -14,8 +14,8 @@ div, h1, h2, h3, h4 {
 .landing-visuals {
   position: relative;
   height: 750px;
-  background-color: rgba(14,29,42,0.05);
-  font-size: 36px;
+  background-color: rgba(0, 0, 0, 0.05);
+  font-size: 35px;
 }
 
 .visual-header {
