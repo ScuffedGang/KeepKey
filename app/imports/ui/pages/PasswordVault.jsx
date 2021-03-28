@@ -59,9 +59,13 @@ PasswordVault.propTypes = {
 };
 
 export default withTracker(() => {
-    const subscription1 = Meteor.subscribe('Clubs');
+    const subscription1 = Meteor.subscribe('MyClubs');
+    let username = '';
+    if (Meteor.user() !== undefined) {
+        username = Meteor.user().username;
+    }
     return {
-        password: Clubs.find({}).fetch(),
+        password: Clubs.find({ email: username }).fetch(),
         ready: subscription1.ready(),
     };
 })(PasswordVault);
