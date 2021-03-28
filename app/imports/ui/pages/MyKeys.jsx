@@ -4,13 +4,13 @@ import { Container, Header, Loader, Card, Button, Grid } from 'semantic-ui-react
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import ClubOwner from '../components/ClubOwner';
-import { Clubs } from '../../api/club/Clubs';
+import KeyOwner from '../components/KeyOwner';
+import { Keys } from '../../api/keys/Keys';
 import ClubPending from '../components/ClubPending';
 import ClubDenied from '../components/ClubDenied';
 import ClubDeleted from '../components/ClubDeleted';
 
-class MyClub extends React.Component {
+class MyKeys extends React.Component {
 
     state = { redirect: false };
 
@@ -27,29 +27,22 @@ class MyClub extends React.Component {
     renderPage() {
             return (
                 <Container>
-                    <Header as="h2" textAlign="center">My Clubs</Header>
-                    {this.props.clubs.length !== 0 ?
+                    <Header as="h2" textAlign="center">My Keys</Header>
+                    {this.props.keys.length !== 0 ?
                         <Card.Group>
-                            {this.props.clubs.map((club, index) => {
-                              switch (club.status) {
-                                case 'active': return <ClubOwner key={index} club={club}/>;
-                                case 'pending': return <ClubPending key={index} club={club}/>;
-                                case 'denied': return <ClubDenied key={index} club={club}/>;
-                                case 'deleted': return <ClubDeleted key={index} club={club}/>;
-                                default:
-                                  return console.log('Status error');
-                              }
+                            {this.props.keys.map((keys, index) => {
+                                return <KeyOwner key={index} keys={keys}/>;
                                 })}
                         </Card.Group> :
                         <Grid centered>
                             <Grid.Row>
-                                <p id='noClubs'>
-                                Sorry, It seems like you don&apos;t have any clubs yet.
+                                <p id='noKeys'>
+                                Sorry, It seems like you don&apos;t have any keys yet.
                                 </p>
                             </Grid.Row>
                             <Grid.Row>
                                 <Button as={NavLink} activeClassName="active" exact to="/add" key='add'>
-                                  Click here to create a new club!</Button>
+                                  Click here to store a new key.</Button>
                             </Grid.Row>
                         </Grid>
                     }
@@ -58,19 +51,19 @@ class MyClub extends React.Component {
     }
 }
 
-MyClub.propTypes = {
-    clubs: PropTypes.array.isRequired,
+MyKeys.propTypes = {
+    keys: PropTypes.array.isRequired,
     ready: PropTypes.bool.isRequired,
 };
 
 export default withTracker(() => {
-    const subscription = Meteor.subscribe('MyClubs');
+    const subscription = Meteor.subscribe('MyKeys');
     let username = '';
     if (Meteor.user() !== undefined) {
         username = Meteor.user().username;
     }
     return {
-        clubs: Clubs.find({ email: username }).fetch(),
+        keys: Keys.find({ owner: username }).fetch(),
         ready: subscription.ready(),
     };
-})(MyClub);
+})(MyKeys);

@@ -3,7 +3,7 @@ import swal from 'sweetalert';
 import { Button, Card, Image, Statistic, Container, Icon, Dimmer, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
-import { Clubs } from '../../api/club/Clubs';
+import { Clubs } from '../../api/keys/Keys';
 
 class ClubPending extends React.Component {
 

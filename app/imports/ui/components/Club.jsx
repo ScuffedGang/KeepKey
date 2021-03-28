@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { Favorites } from '../../api/favorites/Favorites';
-import { Clubs, ClubSchema } from '../../api/club/Clubs';
+import { Clubs, ClubSchema } from '../../api/keys/Keys';
 
 class Club extends React.Component {
   handleRate = () => {

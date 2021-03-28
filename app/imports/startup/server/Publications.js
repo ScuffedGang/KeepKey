@@ -1,21 +1,21 @@
 import { Meteor } from 'meteor/meteor';
 import { Counts } from 'meteor/tmeasday:publish-counts';
-import { Clubs } from '../../api/club/Clubs';
+import { Keys } from '../../api/keys/Keys';
 import { Interests } from '../../api/interests/Interests';
 import { Favorites } from '../../api/favorites/Favorites';
 
-/** This subscription publishes only the clubs owned by the logged in user */
-Meteor.publish('MyClubs', function publish() {
+/** This subscription publishes only the Keys owned by the logged in user */
+Meteor.publish('MyKeys', function publish() {
   if (this.userId) {
-    return Clubs.find();
+    return Keys.find();
   }
   return this.ready();
 });
 
-/** This subscription publishes all the clubs for all users to browse. */
-Meteor.publish('Clubs', function publish() {
+/** This subscription publishes all the Keys for all users to browse. */
+Meteor.publish('Keys', function publish() {
   if (this.userId) {
-    return Clubs.find({ status: 'active' });
+    return Keys.find({});
   }
   return this.ready();
 });
@@ -25,7 +25,7 @@ Meteor.publish('Interests', function publish() {
   return Interests.find();
 });
 
-/** This subscription publishes only clubs favorited by user */
+/** This subscription publishes only Keys favorited by user */
 Meteor.publish('Favorites', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
@@ -34,28 +34,28 @@ Meteor.publish('Favorites', function publish() {
   return this.ready();
 });
 
-/** This subscription publishes only the clubs that have been submitted to view. */
+/** This subscription publishes only the Keys that have been submitted to view. */
 Meteor.publish('Submitted', function publish() {
   if (this.userId) {
-    return Clubs.find({ status: 'pending' });
+    return Keys.find({});
   }
   return this.ready();
 });
 
-Meteor.publish('LuckyClubs', function publish() {
+Meteor.publish('LuckyKeys', function publish() {
   if (this.userId) {
     const interests = Meteor.users.findOne(this.userId).profile.interests;
     if (interests.length !== 0) {
-      Counts.publish(this, 'LuckyCount', Clubs.find({ interest: { $in: interests } }));
-      return Clubs.find({ interest: { $in: interests } });
+      Counts.publish(this, 'LuckyCount', Keys.find({ }));
+      return Keys.find({ interest: { $in: interests } });
     }
-      Counts.publish(this, 'LuckyCount', Clubs.find({}));
-      return Clubs.find({});
+      Counts.publish(this, 'LuckyCount', Keys.find({}));
+      return Keys.find({});
 
   }
   return this.ready();
 });
 
 Meteor.publish('ClubCount', function publish() {
-  Counts.publish(this, 'ClubCount', Clubs.find({ status: 'active' }));
+  Counts.publish(this, 'ClubCount', Keys.find({}));
 });
