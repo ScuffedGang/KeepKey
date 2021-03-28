@@ -3,8 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card, Grid, Pagination } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
-import ClubOwner from '../components/ClubOwner';
 import { Clubs } from '../../api/club/Clubs';
 import PasswordVaultDisplay from '../components/PasswordVaultDisplay';
 
