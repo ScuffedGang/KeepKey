@@ -2,15 +2,17 @@
   {
     "keyName": "Ebay Account",
     "password": "sample password",
-    "username": "edaily@hawaii.edu",
+    "username": "john@foo.ecom",
     "owner": "john@foo.com",
+    "website": "www.ebay.com",
     "description": "Information for personal ebay account."
   },
   {
     "keyName": "Work Account",
     "password": "sample password",
-    "username": "my username@hawaii.edu",
+    "username": "my-username",
     "owner": "john@foo.com",
+    "website": "www.example.com",
     "description": "Account login for work."
   },
   {
@@ -18,6 +20,7 @@
     "password": "1234",
     "username": "N/A",
     "owner": "john@foo.com",
+    "website": "N/A",
     "description": "Code for lock on my bike."
   },
   {
@@ -25,6 +28,7 @@
     "password": "sample password",
     "username": "random@gmail.com",
     "owner": "john@foo.com",
+    "website": "www.microsoft.com",
     "description": "Personal microsoft account used on my computers."
   },
   {
@@ -32,6 +36,7 @@
     "password": "1234",
     "username": "N/A",
     "owner": "john@foo.com",
+    "website": "N/A",
     "description": "Keypad combination for house lock."
   }
 ]
