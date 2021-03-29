@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import SimpleSchema from 'simpl-schema';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import { _ } from 'meteor/underscore';
-import { Clubs } from '../../api/club/Clubs';
+import { Clubs } from '../../api/keys/Keys';
 import { Interests } from '../../api/interests/Interests';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 
