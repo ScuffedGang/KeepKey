@@ -11,6 +11,7 @@ const Keyschema = new SimpleSchema({
   owner: String,
   username: String,
   password: String,
+  website: String,
   description: { type: String, optional: true, defaultValue: '' },
 }, { tracker: Tracker });
 
