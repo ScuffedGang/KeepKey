@@ -42,7 +42,8 @@ class MyKeys extends React.Component {
                         </Grid>
                     }
                     <div style={{ padding: '10px 0px 20px 0px' }}>
-                    <Button as={NavLink} activeClassName="active" exact to="/add" key='add' floated="right" color="yellow">Add Key</Button>
+                    <Button as={NavLink} activeClassName="active"
+                            exact to="/add" key='add' floated="right" color="yellow">Add Key</Button>
                     </div>
                 </Container>
             );

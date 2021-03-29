@@ -8,7 +8,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import AddKey from '../pages/AddKey';
-import EditClub from '../pages/EditClub';
+import EditKey from '../pages/EditKey';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -30,7 +30,7 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/my-keys" component={MyKeys}/>
               <ProtectedRoute path="/add" component={AddKey}/>
-              <ProtectedRoute path="/edit/:_id" component={EditClub}/>
+              <ProtectedRoute path="/edit/:_id" component={EditKey}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/profile" component={Profile}/>
               <ProtectedRoute path="/editprofile" component={EditProfile}/>

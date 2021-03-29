@@ -1,49 +1,12 @@
 {
   "defaultAccounts": [
     {
-      "email": "admin@foo.com",
-      "password": "changeme",
-      "role": "admin",
-      "profile": {
-        "firstName": "Admin",
-        "lastName": "Man",
-        "interests": [
-          "Academic",
-          "Professional",
-          "Political"
-        ],
-        "picture": "https://telegram.org/file/811140642/1/nM2DU-Ywr3A/e5809db818346b4be5"
-      },
-      "favorites": []
-    },
-    {
-      "email": "club@foo.com",
-      "password": "changeme",
-      "role": "clubOwner",
-      "profile": {
-        "firstName": "Club",
-        "lastName": "Owner",
-        "interests": [
-          "Religious",
-          "Spiritual",
-          "Service"
-        ],
-        "picture": "https://previews.123rf.com/images/jemastock/jemastock1808/jemastock180805062/111842325-businessman-profile-with-sunglasses-and-thumbs-up-pop-art-cartoon-vector-illustration-graphic-design.jpg"
-      },
-      "favorites": []
-    },
-    {
       "email": "john@foo.com",
       "password": "changeme",
-      "profile":{
-        "firstName": "Johnny",
-        "lastName": "Boi",
-        "interests": [
-          "Ethnic",
-          "Cultural"
-        ]
-      },
-      "favorites": []
+      "profile": {
+        "firstName": "John",
+        "lastName": "Doe"
+      }
     }
   ],
  "loadAssetsFile": true
