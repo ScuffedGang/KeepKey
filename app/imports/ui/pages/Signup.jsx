@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { Header, Divider, Form, Grid, Segment, Message, Button, Image } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 import ParticlesBg from 'particles-bg';
+import Sky from 'react-sky';
 
 /**
  * Signup component is similar to signin component, but we create a new user instead.
@@ -54,7 +55,7 @@ class Signup extends React.Component {
           <Grid.Column style={{ maxWidth: 450 }}>
             <Segment className='sign-in-up'>
             <Header as='h1' textAlign='center' className='transparent-green-box' >
-              <Image src='../images/cl-uh-b-logo.png'/>Sign up for CL-UH-B</Header>
+              <Image src='../images/KeepKeyLogoBack.png'/>Sign up for Keep Key</Header>
             <Form onSubmit={this.submit}>
               <Form.Input
                   name="firstName"
@@ -104,6 +105,20 @@ class Signup extends React.Component {
             </Segment>
           </Grid.Column>
         </Grid>
+        <Sky
+            images={{
+              0: "../images/key1.png",
+              1: "../images/key2.png",
+              2: "../images/key3.png",
+              3: "../images/key4.png",
+              4: "../images/key5.png",
+              5: "../images/key6.png",
+            }}
+            how={350}
+            time={40}
+            size={'100px'}
+            background={'palettedvioletred'}
+        />
         <ParticlesBg color='#024731' num={30} type='cobweb' bg={true} />
       </div>
     );
