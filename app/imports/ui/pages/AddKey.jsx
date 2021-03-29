@@ -11,15 +11,12 @@ import { Keys } from '../../api/keys/Keys';
 import { Interests } from '../../api/interests/Interests';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 
-const makeSchema = (clubInterests) => new SimpleSchema({
-  clubName: String,
-  interest: Array,
-  'interest.$': { type: String, allowedValues: clubInterests },
-  description: { type: String, optional: true },
-  contact: { type: String, defaultValue: `${Meteor.user().profile.firstName} ${Meteor.user().profile.lastName}` },
-  email: { type: String, defaultValue: Meteor.user().username },
-  website: { type: String, optional: true, defaultValue: '' },
-  image: { type: String, optional: true },
+const makeSchema = (keySchema) => new SimpleSchema({
+  keyName: String,
+  password: String,
+  username: String,
+  owner: { type: String, optional: true },
+  description: { type: String, optional: true }
 });
 
 /** Renders the Page for adding a document. */
@@ -27,13 +24,14 @@ class AddKey extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { clubName, interest, description, contact, email, website, image } = data;
-    Keys.insert({ clubName, interest, description, contact, email, website, image },
+    const { keyName, password, username, description} = data;
+    const owner = Meteor.user().username;
+    Keys.insert({ keyName, password, username, owner, description},
         (error) => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success!', 'Club submitted successfully for admin review.', 'success');
+          swal('Success!', 'New key has been creeated and saved.', 'success');
           formRef.reset();
         }
       });
@@ -42,25 +40,20 @@ class AddKey extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
     let fRef = null;
-    const clubInterests = _.pluck(Interests.find().fetch(), 'interest');
-    const formSchema = makeSchema(clubInterests);
+    const keySchema = null;
+    const formSchema = makeSchema(keySchema);
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Add Club</Header>
+            <Header as="h2" textAlign="center">Add Key</Header>
               <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
                 <Segment>
-                  <TextField name='clubName'/>
-                  <MultiSelectField name='interest'/>
+                  <TextField name='keyName'/>
+                  <Segment.Group horizontal>
+                    <Segment><TextField name='username'/></Segment>
+                    <Segment><TextField name='password'/></Segment>
+                  </Segment.Group>
                   <LongTextField name='description'/>
-                  <Segment.Group horizontal>
-                    <Segment><TextField name='contact'/></Segment>
-                    <Segment><TextField name='email' disabled/></Segment>
-                  </Segment.Group>
-                  <Segment.Group horizontal>
-                    <Segment><TextField name='website'/></Segment>
-                    <Segment><TextField name='image'/></Segment>
-                  </Segment.Group>
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
                 </Segment>
@@ -72,7 +65,7 @@ class AddKey extends React.Component {
 }
 
 export default withTracker(() => {
-  const subscription = Meteor.subscribe('Interests');
+  const subscription = Meteor.subscribe('Keys');
   return {
     ready: subscription.ready(),
   };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card, Button, Grid } from 'semantic-ui-react';
+import { Container, Header, Loader, Card, Button, Grid, Menu } from "semantic-ui-react";
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
@@ -47,7 +47,7 @@ class MyKeys extends React.Component {
                         </Grid>
                     }
                     <div style={{ padding: '10px 0px 20px 0px' }}>
-                    <Button floated="right" color="yellow">Add Key</Button>
+                    <Button as={NavLink} activeClassName="active" exact to="/add" key='add' floated="right" color="yellow">Add Key</Button>
                     </div>
                 </Container>
             );
