@@ -7,7 +7,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
 import { _ } from 'meteor/underscore';
-import { Clubs } from '../../api/keys/Keys';
+import { Keys } from '../../api/keys/Keys';
 import { Interests } from '../../api/interests/Interests';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 
@@ -23,12 +23,12 @@ const makeSchema = (clubInterests) => new SimpleSchema({
 });
 
 /** Renders the Page for adding a document. */
-class AddClub extends React.Component {
+class AddKey extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
     const { clubName, interest, description, contact, email, website, image } = data;
-    Clubs.insert({ clubName, interest, description, contact, email, website, image },
+    Keys.insert({ clubName, interest, description, contact, email, website, image },
         (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -76,4 +76,4 @@ export default withTracker(() => {
   return {
     ready: subscription.ready(),
   };
-})(AddClub);
+})(AddKey);

@@ -5,5 +5,33 @@
     "username": "edaily@hawaii.edu",
     "owner": "john@foo.com",
     "description": "Information for personal ebay account."
+  },
+  {
+    "keyName": "Work Account",
+    "password": "sample password",
+    "username": "my username@hawaii.edu",
+    "owner": "john@foo.com",
+    "description": "Account login for work."
+  },
+  {
+    "keyName": "Bike Lock",
+    "password": "1234",
+    "username": "N/A",
+    "owner": "john@foo.com",
+    "description": "Code for lock on my bike."
+  },
+  {
+    "keyName": "Microsoft Account",
+    "password": "sample password",
+    "username": "random@gmail.com",
+    "owner": "john@foo.com",
+    "description": "Personal microsoft account used on my computers."
+  },
+  {
+    "keyName": "House Key Code",
+    "password": "1234",
+    "username": "N/A",
+    "owner": "john@foo.com",
+    "description": "Keypad combination for house lock."
   }
 ]

@@ -22,6 +22,7 @@ class KeyOwner extends React.Component {
             })
                 .then((value) => {
                   if (value !== '') {
+                      console.log(docID);
                     Keys.remove(docID);
                     swal('keys has been removed.', {
                       icon: 'success',
@@ -44,7 +45,7 @@ class KeyOwner extends React.Component {
     return (
         <Card centered fluid>
           <Card.Content>
-            <Card.Header style={ { fontSize: 25, marginBottom: 5 } }>{this.props.keys.keyName}</Card.Header>
+            <Card.Header style={ { fontSize: 25, marginBottom: 5 } }>{this.props.keys.keyName}<Button onClick={() => this.removekeys(this.props.keys._id)} floated="right" color="red" >Delete Key</Button></Card.Header>
             <Card.Meta>Email: {this.props.keys.username}</Card.Meta>
             <Card.Meta>Password: {this.props.keys.password}</Card.Meta>
             <Container>{this.props.keys.description}</Container>

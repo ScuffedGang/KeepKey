@@ -46,6 +46,9 @@ class MyKeys extends React.Component {
                             </Grid.Row>
                         </Grid>
                     }
+                    <div style={{ padding: '10px 0px 20px 0px' }}>
+                    <Button floated="right" color="yellow">Add Key</Button>
+                    </div>
                 </Container>
             );
     }
