@@ -6,17 +6,15 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
-import { _ } from 'meteor/underscore';
 import { Keys } from '../../api/keys/Keys';
-import { Interests } from '../../api/interests/Interests';
-import MultiSelectField from '../forms/controllers/MultiSelectField';
 
 const makeSchema = (keySchema) => new SimpleSchema({
   keyName: String,
   password: String,
   username: String,
+  website: String,
   owner: { type: String, optional: true },
-  description: { type: String, optional: true }
+  description: { type: String, optional: true },
 });
 
 /** Renders the Page for adding a document. */
@@ -24,14 +22,14 @@ class AddKey extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { keyName, password, username, description} = data;
+    const { keyName, password, website, username, description } = data;
     const owner = Meteor.user().username;
-    Keys.insert({ keyName, password, username, owner, description},
+    Keys.insert({ keyName, password, username, website, owner, description },
         (error) => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success!', 'New key has been creeated and saved.', 'success');
+          swal('Success!', 'New key has been created and saved.', 'success');
           formRef.reset();
         }
       });
@@ -49,6 +47,7 @@ class AddKey extends React.Component {
               <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
                 <Segment>
                   <TextField name='keyName'/>
+                  <TextField name='website'/>
                   <Segment.Group horizontal>
                     <Segment><TextField name='username'/></Segment>
                     <Segment><TextField name='password'/></Segment>

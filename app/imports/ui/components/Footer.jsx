@@ -8,15 +8,9 @@ class Footer extends React.Component {
     return (
           <div style={divStyle} className="ui fluid center aligned container" id='footer'>
             {/* eslint-disable-next-line react/jsx-no-target-blank */}
-            <a href='https://www.facebook.com/uhm.studentlife/?ref=ss' target='_blank'><Icon name='facebook'/></a>
-            {/* eslint-disable-next-line react/jsx-no-target-blank */}
-            <a href='https://twitter.com/UHM_StudentLife' target='_blank'><Icon name='twitter square'/></a>
-            {/* eslint-disable-next-line react/jsx-no-target-blank */}
-            <a href='https://github.com/cl-uh-b' target='_blank'><Icon name='github'/> <br /></a>
-            Website Managed by KeepKey <br />
-            Information Provided by Student Life & Development <br />
-            Phone: (808) 956-8178 · Email: sld@hawaii.edu<br />
-            University of Hawaiʻi at Mānoa · 2465 Campus Road, Room 208 · Honolulu, HI 96822
+            <a href='https://github.com/ScuffedGang' target='_blank'><Icon name='github'/> <br /></a>
+            Website Managed by ScuffedGang <br />
+            University of Hawaiʻi at Mānoa · ICS 427 · Software Quality Assurance
           </div>
     );
   }

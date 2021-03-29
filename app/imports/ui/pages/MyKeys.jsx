@@ -1,14 +1,11 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card, Button, Grid, Menu } from "semantic-ui-react";
+import { Container, Header, Loader, Card, Button, Grid } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import KeyOwner from '../components/KeyOwner';
+import KeyDisplay from '../components/KeyDisplay';
 import { Keys } from '../../api/keys/Keys';
-import ClubPending from '../components/ClubPending';
-import ClubDenied from '../components/ClubDenied';
-import ClubDeleted from '../components/ClubDeleted';
 
 class MyKeys extends React.Component {
 
@@ -26,13 +23,11 @@ class MyKeys extends React.Component {
     /** Render the page once subscriptions have been received. */
     renderPage() {
             return (
-                <Container>
+                <Container fluid style={{ padding: '0 290px' }}>
                     <Header as="h2" textAlign="center">My Keys</Header>
                     {this.props.keys.length !== 0 ?
                         <Card.Group>
-                            {this.props.keys.map((keys, index) => {
-                                return <KeyOwner key={index} keys={keys}/>;
-                                })}
+                            {this.props.keys.map((keys, index) => <KeyDisplay key={index} keys={keys}/>)}
                         </Card.Group> :
                         <Grid centered>
                             <Grid.Row>
