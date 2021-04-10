@@ -20,6 +20,7 @@ class Landing extends React.Component {
   }
 
   render() {
+      // eslint-disable-next-line no-unused-vars
     const { activeIndex } = this.state;
 
     /** Tab panes for information */
