@@ -107,12 +107,12 @@ class Signup extends React.Component {
         </Grid>
         <Sky
             images={{
-              0: "../images/key1.png",
-              1: "../images/key2.png",
-              2: "../images/key3.png",
-              3: "../images/key4.png",
-              4: "../images/key5.png",
-              5: "../images/key6.png",
+              0: '../images/key1.png',
+              1: '../images/key2.png',
+              2: '../images/key3.png',
+              3: '../images/key4.png',
+              4: '../images/key5.png',
+              5: '../images/key6.png',
             }}
             how={350}
             time={40}
