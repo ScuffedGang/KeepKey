@@ -49,6 +49,7 @@ class Landing extends React.Component {
         ),
         render: () => <Tab.Pane attached={false} className='tab-pane'>
           <Header as='h4' className='info-desc'>
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
             KeepKey's stores your information in our database with secure encryption and multi-factor
             authentication so that you and you alone can see your information without risk of theft.
           </Header>
@@ -97,12 +98,12 @@ class Landing extends React.Component {
           </Grid>
           <Sky
               images={{
-                0: "../images/key1.png",
-                1: "../images/key2.png",
-                2: "../images/key3.png",
-                3: "../images/key4.png",
-                4: "../images/key5.png",
-                5: "../images/key6.png",
+                0: '../images/key1.png',
+                1: '../images/key2.png',
+                2: '../images/key3.png',
+                3: '../images/key4.png',
+                4: '../images/key5.png',
+                5: '../images/key6.png',
               }}
               how={350}
               time={40}

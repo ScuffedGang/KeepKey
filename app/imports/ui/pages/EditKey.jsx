@@ -10,6 +10,7 @@ import SimpleSchema from 'simpl-schema';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import { Keys } from '../../api/keys/Keys';
 
+// eslint-disable-next-line no-unused-vars
 const makeSchema = (keySchema) => new SimpleSchema({
   keyName: String,
   password: String,
@@ -37,6 +38,7 @@ class EditKey extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
+    // eslint-disable-next-line no-unused-vars
     let fRef = null;
     const keySchema = null;
     const formSchema = makeSchema(keySchema);

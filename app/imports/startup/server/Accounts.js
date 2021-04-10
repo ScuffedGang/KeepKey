@@ -5,7 +5,7 @@ import { Accounts } from 'meteor/accounts-base';
 
 function createUser(email, password, firstName, lastName) {
   console.log(`  Creating user ${email}: ${firstName} ${lastName}.`);
-  const userID = Accounts.createUser({
+  Accounts.createUser({
     username: email,
     email: email,
     password: password,
