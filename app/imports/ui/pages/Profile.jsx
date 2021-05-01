@@ -19,6 +19,9 @@ class Profile extends React.Component {
               <Link to='/editprofile'>
                 <Button basic>Edit</Button>
               </Link>
+               <Link to='/removed'>
+                <Button class="button1" onClick={Meteor.users.remove({_id: this.userId})} >Delete Account</Button>
+               </Link>
             </Card.Content>
           </Card>
         </Container>

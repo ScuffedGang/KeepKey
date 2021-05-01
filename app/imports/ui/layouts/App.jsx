@@ -16,6 +16,7 @@ import Signout from '../pages/Signout';
 import MyKeys from '../pages/MyKeys';
 import Profile from '../pages/Profile';
 import EditProfile from '../pages/EditProfile';
+import Removed from "../pages/Removed";
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -34,6 +35,7 @@ class App extends React.Component {
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/profile" component={Profile}/>
               <ProtectedRoute path="/editprofile" component={EditProfile}/>
+              <ProtectedRoute path="/removed" component={Removed}/>
               <Route component={NotFound}/>
             </Switch>
             <Footer/>
