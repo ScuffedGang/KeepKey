@@ -3,14 +3,13 @@ import { Meteor } from 'meteor/meteor';
 const updateProfileMethod = 'Profile.Update';
 
 Meteor.methods({
-  'Profile.Update'({ firstName, lastName, interests, picture }) {
+  'Profile.Update'({ password, firstName, lastName }) {
     const id = Meteor.user()._id;
     Meteor.users.update({ _id: id }, { $set: {
-        profile: {
+      profile: {
           firstName: firstName,
           lastName: lastName,
-          interests: interests,
-          picture: picture,
+          password: password,
         },
       } });
   },

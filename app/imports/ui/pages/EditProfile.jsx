@@ -9,17 +9,13 @@ import SimpleSchema from 'simpl-schema';
 import { _ } from 'meteor/underscore';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
-import ParticlesBg from 'particles-bg';
-import MultiSelectField from '../forms/controllers/MultiSelectField';
 import { updateProfileMethod } from '../../startup/both/Methods';
-import { Interests } from '../../api/interests/Interests';
 
-const makeSchema = (clubInterests) => new SimpleSchema({
+// eslint-disable-next-line no-unused-vars
+const makeSchema = (profileSchema) => new SimpleSchema({
   firstName: { type: String, label: 'First Name' },
   lastName: { type: String, label: 'Last Name' },
-  interests: { type: Array, label: 'Interests', optional: true },
-  'interests.$': { type: String, allowedValues: clubInterests },
-  picture: { type: String, label: 'Profile Picture', optional: true },
+  password: { type: String, label: 'Password' },
 });
 
 /** Renders the Page for editing a single document. */
@@ -41,30 +37,28 @@ class EditProfile extends React.Component {
   }
 
   renderPage() {
-    const clubInterests = _.pluck(Interests.find().fetch(), 'interest');
-    const formSchema = makeSchema(clubInterests);
+    let fRef = null;
+    const profileSchema = null;
+    const formSchema = makeSchema(profileSchema);
     const user = Meteor.user().profile;
     const model = _.extend({}, user);
-    let fRef = null;
     return (
       <div>
         <Grid textAlign='center' style={{ height: '75vh' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
             <Segment className='sign-in-up'>
-              <Header as='h2' textAlign='center' className='transparent-green-box'>Edit Profile</Header>
+              <Header as='h2' textAlign='center' className='transparent-box'>Edit Profile</Header>
               <AutoForm ref={ref => { fRef = ref; }} schema={formSchema}
                         onSubmit={data => this.submit(data, fRef)} model={model} showInlineError >
                 <TextField name='firstName' />
                 <TextField name='lastName' />
-                <MultiSelectField name='interests' />
-                <TextField name='picture' />
+                <TextField name='password' />
                 <SubmitField value='Submit' />
                 <Link to="/profile"><Button>Back</Button></Link>
               </AutoForm>
             </Segment>
           </Grid.Column>
         </Grid>
-        <ParticlesBg color='#024731' num={30} type='cobweb' bg={true} />
       </div>
     );
   }
@@ -75,9 +69,8 @@ EditProfile.propTypes = {
 };
 
 export default withTracker(() => {
-  const subscription = Meteor.subscribe('Interests');
   const profile = Meteor.user() !== undefined;
   return {
-    ready: subscription.ready() && profile,
+    ready: profile,
   };
 })(EditProfile);

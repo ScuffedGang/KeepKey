@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Header, Divider, Form, Grid, Message, Button, Image, Segment } from 'semantic-ui-react';
-import ParticlesBg from 'particles-bg';
 import Sky from 'react-sky';
 
 /**
@@ -48,8 +47,8 @@ export default class Signin extends React.Component {
           <Grid textAlign='center' style={{ height: '75vh' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 450 }}>
               <Segment className='sign-in-up'>
-                <Header as='h1' textAlign='center' className='transparent-green-box'>
-                  <Image src='../images/KeepKeyLogoBack.png'/>Sign in to Keep Key</Header>
+                <Header as='h1' textAlign='center' className='transparent-box'>
+                  <Image src='../images/KeepKeyLogoBack.png'/>Sign in to KeepKey</Header>
                 <Form onSubmit={this.submit}>
                   <Form.Input
                       icon="user"
@@ -101,7 +100,6 @@ export default class Signin extends React.Component {
               size={'100px'}
               background={'palettedvioletred'}
           />
-          <ParticlesBg color='#024731' num={30} type='cobweb' bg={true} />
         </div>
     );
   }
