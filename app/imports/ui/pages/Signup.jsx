@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Header, Divider, Form, Grid, Segment, Message, Button, Image } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
-import ParticlesBg from 'particles-bg';
 import Sky from 'react-sky';
 
 /**
@@ -54,8 +53,8 @@ class Signup extends React.Component {
         <Grid textAlign='center' style={{ height: '75vh' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
             <Segment className='sign-in-up'>
-            <Header as='h1' textAlign='center' className='transparent-green-box' >
-              <Image src='../images/KeepKeyLogoBack.png'/>Sign up for Keep Key</Header>
+            <Header as='h1' textAlign='center' className='transparent-box' >
+              <Image src='../images/KeepKeyLogoBack.png'/>Sign up for KeepKey</Header>
             <Form onSubmit={this.submit}>
               <Form.Input
                   name="firstName"
@@ -119,7 +118,6 @@ class Signup extends React.Component {
             size={'100px'}
             background={'palettedvioletred'}
         />
-        <ParticlesBg color='#024731' num={30} type='cobweb' bg={true} />
       </div>
     );
   }

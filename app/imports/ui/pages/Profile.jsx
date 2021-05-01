@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, Container, Header} from 'semantic-ui-react';
+import { Card, Button, Container, Header } from 'semantic-ui-react';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router-dom';
@@ -20,7 +20,7 @@ class Profile extends React.Component {
                 <Button basic>Edit</Button>
               </Link>
                <Link to='/removed'>
-                <Button class="button1" onClick={Meteor.users.remove({_id: this.userId})} >Delete Account</Button>
+                <Button class="button1" onClick={Meteor.users.remove({ _id: this.userId })}>Delete Account</Button>
                </Link>
             </Card.Content>
           </Card>

@@ -16,7 +16,7 @@ import Signout from '../pages/Signout';
 import MyKeys from '../pages/MyKeys';
 import Profile from '../pages/Profile';
 import EditProfile from '../pages/EditProfile';
-import Removed from "../pages/Removed";
+import Removed from '../pages/Removed';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
